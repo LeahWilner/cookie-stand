@@ -2,18 +2,13 @@
 console.log('js file loaded.');
 
 
+let hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
 
-
-// (6:00 AM to 8:00 PM for all locations)
-
-// The minimum number of customers per hour.
-// The maximum number of customers per hour.
-// The average number of cookies purchased per customer.
 
 // cookiePurchased = eachHour x average cookies purchased x randomNumber of customers.
 
 // Use a method of that object to generate a random number of customers per hour.
-// Store the results for each location in a separate array…
+
 // perhaps as a property of the object representing that location.
 // Store the min/max hourly customers,
 // and the average cookies per customer, in object properties.
@@ -21,37 +16,95 @@ console.log('js file loaded.');
 let locSeattle = {
   minCustomerPerHour: 23,
   maxCustomerPerHour: 65,
-  avgCookiesPerSale: 6.3
-
+  avgCookiesPerSale: 6.3,
+  hourlyArray : [],
+  numCust: function(){
+    // return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
+    return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
+  },
+  cookiePurchased: function(){
+    for(let i = 0; i < hours.length; i++){
+      // console.log(i);
+      //store hourly cookie totals based on num customers per hour
+      this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    }
+  }
 };
 
 
 let locTokyo = {
   minCustomerPerHour: 3,
   maxCustomerPerHour: 24,
-  avgCookiesPerSale: 1.2
+  avgCookiesPerSale: 1.2,
+  hourlyArray : [],
+  numCust: function(){
+    // return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
+    return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
+  },
+  cookiePurchased: function(){
+    for(let i = 0; i < hours.length; i++){
+      // console.log(i);
+      //store hourly cookie totals based on num customers per hour
+      this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    }
+  }
 
 };
 
 let locDubai = {
   minCustomerPerHour: 11,
   maxCustomerPerHour: 38,
-  avgCookiesPerSale: 3.7
+  avgCookiesPerSale: 3.7,
+  hourlyArray : [],
+  numCust: function(){
+    // return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
+    return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
+  },
+  cookiePurchased: function(){
+    for(let i = 0; i < hours.length; i++){
+      // console.log(i);
+      //store hourly cookie totals based on num customers per hour
+      this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    }
+  }
 
 };
 
 let locParis = {
   minCustomerPerHour: 20,
   maxCustomerPerHour: 38,
-  avgCookiesPerSale: 2.3
+  avgCookiesPerSale: 2.3,
+  hourlyArray : [],
+  numCust: function(){
+    // return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
+    return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
+  },
+  cookiePurchased: function(){
+    for(let i = 0; i < hours.length; i++){
+      // console.log(i);
+      //store hourly cookie totals based on num customers per hour
+      this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    }
+  }
 
 };
 
 let locLima = {
   minCustomerPerHour: 2,
   maxCustomerPerHour: 16,
-  avgCookiesPerSale: 4.6
-
+  avgCookiesPerSale: 4.6,
+  hourlyArray : [],
+  numCust: function(){
+    // return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
+    return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
+  },
+  cookiePurchased: function(){
+    for(let i = 0; i < hours.length; i++){
+      // console.log(i);
+      //store hourly cookie totals based on num customers per hour
+      this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    }
+  }
 };
 
 
@@ -60,34 +113,34 @@ let locLima = {
 
 
 
-console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
-
-
-
-// Calculating the sum of these hourly totals;
-
-
-
+// console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
 
 
 
 //  generating sales data and providing output on an html document.
 // Display the values of each array as unordered lists in the browser.
+function displayData(location, id){
+  location.cookiePurchased();
+  console.log('location: ',location, 'store id: ',id);
+  //we are populating hourly cookie data in each of our store objects
 
-// Seattle
 
-// 6am: 16 cookies
-// 7am: 20 cookies
-// 8am: 35 cookies
-// 9am: 48 cookies
-// 10am: 56 cookies
-// 11am: 77 cookies
-// 12pm: 93 cookies
-// 1pm: 144 cookies
-// 2pm: 119 cookies
-// 3pm: 84 cookies
-// 4pm: 61 cookies
-// 5pm: 23 cookies
-// 6pm: 42 cookies
-// 7pm: 57 cookies
-// Total: 875 cookies
+
+
+
+
+
+
+
+}
+
+
+
+//call display function on each of my objects.
+displayData(locSeattle, 'seattle');
+displayData(locTokyo, 'tokyo');
+displayData(locDubai, 'dubai');
+displayData(locParis, 'paris');
+displayData(locLima, 'lima');
+
+
