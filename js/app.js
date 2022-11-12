@@ -121,18 +121,38 @@ let locLima = {
 // Display the values of each array as unordered lists in the browser.
 function displayData(location, id){
   location.cookiePurchased();
-  console.log('location: ',location, 'store id: ',id);
+  // console.log('location: ',location, 'store id: ',id);
   //we are populating hourly cookie data in each of our store objects
 
 
+  //grab parent element = the <ul>
+  let parentElement = document.getElementById(id);
+  console.log(parentElement);
 
+  let cookieTotal = 0;
 
+  // create the li's for each hour the store is open
+  for(let i = 0; i < location.hourlyArray.length; i++){
+    //create element / add the text content / append to the ul
+    //hourly
+    let cookieForThisHour = location.hourlyArray[i];
+    //daily
+    cookieTotal = cookieTotal + cookieForThisHour;
 
+    // console.log({cookieForThisHour, cookieTotal});
+    let listString = hours[i] + ': ' + cookieForThisHour + ' cookies';
+    // console.log(listString);
+    //li to append to our uls
+    let li = document.createElement('li');
+    li.textContent = listString;
+    parentElement.appendChild(li);
+  }//closes for loop
 
+  let totalLi = document.createElement('li');
+  totalLi.textContent = ' Total Cookies: ' + cookieTotal;
+  parentElement.appendChild(totalLi);
 
-
-
-}
+}//closes our function
 
 
 
