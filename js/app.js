@@ -2,147 +2,165 @@
 console.log('js file loaded.');
 
 
-let locSeattle = {
-  minCustomerPerHour: '23',
-  maxCustomerPerHour: '65',
-  avgCookiesPerSale: '6.3'
+let hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
 
+
+// cookiePurchased = eachHour x average cookies purchased x randomNumber of customers.
+
+// Use a method of that object to generate a random number of customers per hour.
+
+// perhaps as a property of the object representing that location.
+// Store the min/max hourly customers,
+// and the average cookies per customer, in object properties.
+
+let locSeattle = {
+  minCustomerPerHour: 23,
+  maxCustomerPerHour: 65,
+  avgCookiesPerSale: 6.3,
+  hourlyArray : [],
+  numCust: function(){
+    // return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
+    return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
+  },
+  cookiePurchased: function(){
+    for(let i = 0; i < hours.length; i++){
+      // console.log(i);
+      //store hourly cookie totals based on num customers per hour
+      this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    }
+  }
 };
 
 
 let locTokyo = {
-  minCustomerPerHour: '3',
-  maxCustomerPerHour: '24',
-  avgCookiesPerSale: '1.2'
+  minCustomerPerHour: 3,
+  maxCustomerPerHour: 24,
+  avgCookiesPerSale: 1.2,
+  hourlyArray : [],
+  numCust: function(){
+    // return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
+    return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
+  },
+  cookiePurchased: function(){
+    for(let i = 0; i < hours.length; i++){
+      // console.log(i);
+      //store hourly cookie totals based on num customers per hour
+      this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    }
+  }
 
 };
 
 let locDubai = {
-  minCustomerPerHour: '11',
-  maxCustomerPerHour: '38',
-  avgCookiesPerSale: '3.7'
+  minCustomerPerHour: 11,
+  maxCustomerPerHour: 38,
+  avgCookiesPerSale: 3.7,
+  hourlyArray : [],
+  numCust: function(){
+    // return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
+    return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
+  },
+  cookiePurchased: function(){
+    for(let i = 0; i < hours.length; i++){
+      // console.log(i);
+      //store hourly cookie totals based on num customers per hour
+      this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    }
+  }
 
 };
 
 let locParis = {
-  minCustomerPerHour: '20',
-  maxCustomerPerHour: '38',
-  avgCookiesPerSale: '2.3'
+  minCustomerPerHour: 20,
+  maxCustomerPerHour: 38,
+  avgCookiesPerSale: 2.3,
+  hourlyArray : [],
+  numCust: function(){
+    // return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
+    return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
+  },
+  cookiePurchased: function(){
+    for(let i = 0; i < hours.length; i++){
+      // console.log(i);
+      //store hourly cookie totals based on num customers per hour
+      this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    }
+  }
 
 };
 
 let locLima = {
-  minCustomerPerHour: '2',
-  maxCustomerPerHour: '16',
-  avgCookiesPerSale: '4.6'
-
-};
-
-console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
-
-
-// Problem Domain: the Cedar Rapids Kitten Rescue has tons of kittens who need good homes. One of the best ways to reach prospective adoptive homes is to have profiles for each kitten available on a website. There are hundreds of kittens, though, and only a few volunteers; it's too time-consuming to hand-code each kitten's profile on their website. They need a better way.
-
-//Each Kitten's profile should have:
-// Name
-// Breed
-// - gender   -- isFixed.
-// - random age assigned
-// a list of what they like to play with.
-// an image
-// is good with kids
-// is good with dogs
-// is good with other animals
-
-
-let petOne = {
-  petName: 'Tiger',
-  breed: 'Tiger',
-  imageName: 'diabloBlanco',
-  interests: ['Sun Light', 'Mouse Toys', 'Red dots'],
-  isGoodWithKids: true,
-  isGoodWithDogs: false,
-  isGoodWithAnimals: true,
-  // age: ' 7 months'
-  setAge: function(){
-    this.age = randomAge(3,12) + ' Months old.';
+  minCustomerPerHour: 2,
+  maxCustomerPerHour: 16,
+  avgCookiesPerSale: 4.6,
+  hourlyArray : [],
+  numCust: function(){
+    // return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
+    return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
+  },
+  cookiePurchased: function(){
+    for(let i = 0; i < hours.length; i++){
+      // console.log(i);
+      //store hourly cookie totals based on num customers per hour
+      this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    }
   }
 };
-petOne.setAge();
-console.log(petOne);
 
 
 
 
-let petTwo = {
-  petName: 'Fluffy',
-  breed: 'Tabby',
-  imageName: 'tommyBob',
-  interests: ['Rainy Days','Running','Yarn'],
-  isGoodWithKids: true,
-  isGoodWithDogs: true,
-  isGoodWithAnimals: true,
-  setAge: function(){
-    this.age = randomAge(3,12) + ' Months old.';
-  }
-};
-petTwo.setAge();
-console.log(petTwo);
-
-
-//adding properties to our objects outside of our object creation.
-petOne.isFixed = false;
-petTwo.isFixed = true;
-
-
-//helper function
-function randomAge(minMonth, maxMonth){
-  return Math.floor(Math.random() * (maxMonth - minMonth) + minMonth);
-}
-
-
-//1. Create DOM elements and render then in the html
-//2. create a new element and append it to the parent element <section>
-//3. create the child elements h3, ul, image, to render a specific pet to the document.
-
-
-let parentElement = document.getElementById('kittenProfiles');
-console.log(parentElement);
-
-//create an article tag
-let article = document.createElement('article');
-// console.log(article);
-
-
-//section    add to page    article         lets add the new article tag to the section
-parentElement.appendChild(article);
-
-//h3
-let h3 = document.createElement('h3');
-// add the content
-h3.textContent = petOne.petName;
-article.appendChild(h3);
 
 
 
-//creat ul
-let petUL = document.createElement('ul');
-article.appendChild(petUL);
-for(let i = 0; i < petOne.interests.length; i++){
-  // creat li
-  let petLi = document.createElement('li');
-  // set the text content
-  petLi.textContent = petOne.interests[i];
-  //append
-  petUL.appendChild(petLi);
-
-}
+// console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
 
 
-//create image
-let petOneImage = document.createElement('img');
-//src and alt
-petOneImage.setAttribute('src', 'images/' + petOne.imageName + '.jpeg');
-petOneImage.setAttribute('alt', 'Adopt our kittens.');
-//append the image
-article.appendChild(petOneImage);
+
+//  generating sales data and providing output on an html document.
+// Display the values of each array as unordered lists in the browser.
+function displayData(location, id){
+  location.cookiePurchased();
+  // console.log('location: ',location, 'store id: ',id);
+  //we are populating hourly cookie data in each of our store objects
+
+
+  //grab parent element = the <ul>
+  let parentElement = document.getElementById(id);
+  console.log(parentElement);
+
+  let cookieTotal = 0;
+
+  // create the li's for each hour the store is open
+  for(let i = 0; i < location.hourlyArray.length; i++){
+    //create element / add the text content / append to the ul
+    //hourly
+    let cookieForThisHour = location.hourlyArray[i];
+    //daily
+    cookieTotal = cookieTotal + cookieForThisHour;
+
+    // console.log({cookieForThisHour, cookieTotal});
+    let listString = hours[i] + ': ' + cookieForThisHour + ' cookies';
+    // console.log(listString);
+    //li to append to our uls
+    let li = document.createElement('li');
+    li.textContent = listString;
+    parentElement.appendChild(li);
+  }//closes for loop
+
+  let totalLi = document.createElement('li');
+  totalLi.textContent = ' Total Cookies: ' + cookieTotal;
+  parentElement.appendChild(totalLi);
+
+}//closes our function
+
+
+
+//call display function on each of my objects.
+displayData(locSeattle, 'seattle');
+displayData(locTokyo, 'tokyo');
+displayData(locDubai, 'dubai');
+displayData(locParis, 'paris');
+displayData(locLima, 'lima');
+
+
