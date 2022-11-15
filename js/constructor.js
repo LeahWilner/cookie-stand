@@ -15,11 +15,11 @@ function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerSa
 
 }
 
-let locSeattle = new Store('Seattle',23, 65, 6.3, []);
-// let locTokyo = new Store(3, 24, 1.2, []);
-// let locDubai = new Store(11, 38, 3.7, []);
-// let locParis = new Store(20, 38, 2.3, []);
-// let locLima = new Store(2, 16, 4.6, []);
+let locSeattle = new Store('Seattle', 23, 65, 6.3, []);
+// let locTokyo = new Store('Tokyo', 3, 24, 1.2, []);
+// let locDubai = new Store('Dubai', 11, 38, 3.7, []);
+// let locParis = new Store('Paris', 20, 38, 2.3, []);
+// let locLima = new Store('Lima', 2, 16, 4.6, []);
 
 // console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
 
@@ -38,4 +38,10 @@ Store.prototype.cookiePurchased = function(){
 
 
 locSeattle.cookiePurchased();
+// locTokyo.cookiePurchased();
+// locDubai.cookiePurchased();
+// locParis.cookiePurchased();
+// locLima.cookiePurchased();
+
+
 
