@@ -176,3 +176,6 @@ let locTokyo = new Store(3, 24, 1.2, []);
 let locDubai = new Store(11, 38, 3.7, []);
 let locParis = new Store(20, 38, 2.3, []);
 let locLima = new Store(2, 16, 4.6, []);
+
+
+

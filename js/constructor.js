@@ -16,10 +16,10 @@ function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerSa
 }
 
 let locSeattle = new Store('Seattle', 23, 65, 6.3, []);
-// let locTokyo = new Store('Tokyo', 3, 24, 1.2, []);
-// let locDubai = new Store('Dubai', 11, 38, 3.7, []);
-// let locParis = new Store('Paris', 20, 38, 2.3, []);
-// let locLima = new Store('Lima', 2, 16, 4.6, []);
+let locTokyo = new Store('Tokyo', 3, 24, 1.2, []);
+let locDubai = new Store('Dubai', 11, 38, 3.7, []);
+let locParis = new Store('Paris', 20, 38, 2.3, []);
+let locLima = new Store('Lima', 2, 16, 4.6, []);
 
 // console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
 
@@ -38,10 +38,32 @@ Store.prototype.cookiePurchased = function(){
 
 
 locSeattle.cookiePurchased();
-// locTokyo.cookiePurchased();
-// locDubai.cookiePurchased();
-// locParis.cookiePurchased();
-// locLima.cookiePurchased();
+locTokyo.cookiePurchased();
+locDubai.cookiePurchased();
+locParis.cookiePurchased();
+locLima.cookiePurchased();
+
+
+let table = document.getElementById('cookieTable');
+console.log(table);
+
+let tHead = document.getElementById('hoursOfOperation');
+console.log(tHead);
+let tHeadRow = document.createElement('tr');
+tHead.appendChild(tHeadRow);
+for (let i = 0; i < hours.length; i++){
+
+  let thCell = document.createElement('th');
+  thCell.textContent = hours[i];
+  tHeadRow.appendChild(thCell);
+  // console.log(hours[i]);
+  // thCell.textContent = hours [i];
+
+
+
+}
+
+
 
 
 
