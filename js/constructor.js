@@ -21,9 +21,9 @@ let locDubai = new Store('Dubai', 11, 38, 3.7, []);
 let locParis = new Store('Paris', 20, 38, 2.3, []);
 let locLima = new Store('Lima', 2, 16, 4.6, []);
 
-// console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
+console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
 
-console.log(locSeattle);
+// console.log(locSeattle);
 
 
 Store.prototype.numCust = function(){
@@ -43,25 +43,27 @@ locDubai.cookiePurchased();
 locParis.cookiePurchased();
 locLima.cookiePurchased();
 
-
-let table = document.getElementById('cookieTable');
-console.log(table);
-
-let tHead = document.getElementById('hoursOfOperation');
-console.log(tHead);
-let tHeadRow = document.createElement('tr');
-tHead.appendChild(tHeadRow);
-for (let i = 0; i < hours.length; i++){
-
-  let thCell = document.createElement('th');
-  thCell.textContent = hours[i];
-  tHeadRow.appendChild(thCell);
-  // console.log(hours[i]);
-  // thCell.textContent = hours [i];
-
-
-
+function createSalesHeader(){
+  let tHead = document.getElementById('hoursOfOperation');
+  let tHeadRow = document.createElement('tr');
+  tHead.appendChild(tHeadRow);
+  let emptyCell = document.createElement('th');
+  tHeadRow.appendChild(emptyCell);
+  for (let i = 0; i < hours.length; i++){
+    let thCell = document.createElement('th');
+    thCell.textContent = hours[i];
+    tHeadRow.appendChild(thCell);
+  }
+  let lastCell = document.createElement('th');
+  lastCell.textContent = 'Daily Location Total';
+  tHeadRow.appendChild(lastCell);
 }
+
+createSalesHeader();
+// let table = document.getElementById('cookieTable');
+
+//create prototype function for cookieHourlyData id element
+//main part of our table.
 
 
 
