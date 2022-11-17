@@ -15,15 +15,7 @@ function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerSa
 
 }
 
-let locSeattle = new Store('Seattle', 23, 65, 6.3, []);
-let locTokyo = new Store('Tokyo', 3, 24, 1.2, []);
-let locDubai = new Store('Dubai', 11, 38, 3.7, []);
-let locParis = new Store('Paris', 20, 38, 2.3, []);
-let locLima = new Store('Lima', 2, 16, 4.6, []);
 
-console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
-
-// console.log(locSeattle);
 
 
 Store.prototype.numCust = function(){
@@ -37,11 +29,7 @@ Store.prototype.cookiePurchased = function(){
 };
 
 
-locSeattle.cookiePurchased();
-locTokyo.cookiePurchased();
-locDubai.cookiePurchased();
-locParis.cookiePurchased();
-locLima.cookiePurchased();
+
 
 function createSalesHeader(){
   let tHead = document.getElementById('hoursOfOperation');
@@ -62,10 +50,90 @@ function createSalesHeader(){
 createSalesHeader();
 // let table = document.getElementById('cookieTable');
 
-//create prototype function for cookieHourlyData id element
-//main part of our table.
+
+
+
+
+Store.prototype.createSalesBody = function(){
+  let tBody = document.getElementById('cookieHourlyData');
+  let tBodyRow = document.createElement('tr');
+  console.log('here!',tBody, tBodyRow);
+
+  //get store location then,
+  //create a td
+  let storeLocation = document.createElement('td');
+  //update the textContent to (this.location)
+  storeLocation.textContent = this.location;
+
+  //append the location to the row
+  tBodyRow.appendChild(storeLocation);
+
+  // create a for loop to iterate through our this.hourlyArray
+  for(let i = 0; i < hours.length; i++){
+    console.log('cookie numbers: ',this.hourlyArray[i]);
+    let storeCookies = document.createElement('td');
+    tBodyRow.appendChild(storeCookies);
+  }
+
+
+  tBody.appendChild(tBodyRow);
+
+
+  //a for loop
+  // create a td
+  // update textContent of the td
+  // append the td to the tr
+
+
+  //lasty we need to render the final total for each store for each day.
+  // create a variable to hold the total as we are iterating through the hourly array
+
+  //append the total to the row.
+
+};
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let locSeattle = new Store('Seattle', 23, 65, 6.3, []);
+let locTokyo = new Store('Tokyo', 3, 24, 1.2, []);
+let locDubai = new Store('Dubai', 11, 38, 3.7, []);
+let locParis = new Store('Paris', 20, 38, 2.3, []);
+let locLima = new Store('Lima', 2, 16, 4.6, []);
+
+console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
+
+// console.log(locSeattle);
+
+
+locSeattle.cookiePurchased();
+locSeattle.createSalesBody();
+locTokyo.cookiePurchased();
+locDubai.cookiePurchased();
+locParis.cookiePurchased();
+locLima.cookiePurchased();
