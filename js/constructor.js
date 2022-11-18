@@ -4,23 +4,18 @@ console.log('js file loaded.');
 let hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
 
 
-
-
 function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerSale, hourlyArray){
   this.location = location;
   this.minCustomerPerHour = minCustomerPerHour;
   this.maxCustomerPerHour = maxCustomerPerHour;
   this.avgCookiesPerSale = avgCookiesPerSale;
   this.hourlyArray = hourlyArray;
-
 }
-
-
 
 
 Store.prototype.numCust = function(){
   return Math.ceil(Math.random()* (this.maxCustomerPerHour - this.minCustomerPerHour) + this.minCustomerPerHour);
-},
+};
 
 Store.prototype.cookiePurchased = function(){
   for(let i = 0; i < hours.length; i++){
@@ -64,29 +59,39 @@ Store.prototype.createSalesBody = function(){
   let storeLocation = document.createElement('td');
   //update the textContent to (this.location)
   storeLocation.textContent = this.location;
-
   //append the location to the row
   tBodyRow.appendChild(storeLocation);
+   
+  let cookieStoreTotal = 0;
 
   // create a for loop to iterate through our this.hourlyArray
   for(let i = 0; i < hours.length; i++){
     console.log('cookie numbers: ',this.hourlyArray[i]);
-    let storeCookies = document.createElement('td');
-    tBodyRow.appendChild(storeCookies);
+    let hourlyCookies = document.createElement('td');
+    hourlyCookies.textContent = this.hourlyArray[i];
+    cookieStoreTotal = cookieStoreTotal + this.hourlyArray[i];
+    tBodyRow.appendChild(hourlyCookies);
   }
 
-};
-
-
-tBody.appendChild(tBodyRow);
+  // add a final cell for the store daily totals
 
 
 
+  let totalCell = document.createElement('th');
+  totalCell.textContent = cookieStoreTotal;
+  tBodyRow.appendChild(totalCell);
 
-//a for loop
-// create a td
-// update textContent of the td
-// append the td to the tr
+
+  tBody.appendChild(tBodyRow);
+}; //closes our main table body
+
+
+
+
+
+
+
+
 
 
 //lasty we need to render the final total for each store for each day.
@@ -95,11 +100,11 @@ tBody.appendChild(tBodyRow);
 //append the total to the row.
 
 
-// Store.prototype.render = function(){
+// Store.prototype.renderFooter = function(){
 // let td = document.getElementById('footerTotals');
+ 
 
-
-
+//};//closes the footer function called renderFooter
 
 
 
@@ -140,8 +145,13 @@ console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
 
 
 locSeattle.cookiePurchased();
+// locTokyo.cookiePurchased();
+// locDubai.cookiePurchased();
+// locParis.cookiePurchased();
+// locLima.cookiePurchased();
+
 locSeattle.createSalesBody();
-locTokyo.cookiePurchased();
-locDubai.cookiePurchased();
-locParis.cookiePurchased();
-locLima.cookiePurchased();
+// locTokyo.createSalesBody();
+// locDubai.createSalesBody();
+// locParis.createSalesBody();
+// locLima.createSalesBody();
