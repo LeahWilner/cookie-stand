@@ -75,22 +75,30 @@ Store.prototype.createSalesBody = function(){
     tBodyRow.appendChild(storeCookies);
   }
 
-
-  tBody.appendChild(tBodyRow);
-
-
-  //a for loop
-  // create a td
-  // update textContent of the td
-  // append the td to the tr
-
-
-  //lasty we need to render the final total for each store for each day.
-  // create a variable to hold the total as we are iterating through the hourly array
-
-  //append the total to the row.
-
 };
+
+
+tBody.appendChild(tBodyRow);
+
+
+
+
+//a for loop
+// create a td
+// update textContent of the td
+// append the td to the tr
+
+
+//lasty we need to render the final total for each store for each day.
+// create a variable to hold the total as we are iterating through the hourly array
+
+//append the total to the row.
+
+
+// Store.prototype.render = function(){
+// let td = document.getElementById('footerTotals');
+
+
 
 
 
