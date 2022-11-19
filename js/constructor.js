@@ -10,6 +10,7 @@ function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerSa
   this.maxCustomerPerHour = maxCustomerPerHour;
   this.avgCookiesPerSale = avgCookiesPerSale;
   this.hourlyArray = hourlyArray;
+  this.allTotalCookies = 0;
   Store.allStores.push(this);
 }
 
@@ -21,6 +22,8 @@ Store.prototype.numCust = function(){
 Store.prototype.cookiePurchased = function(){
   for(let i = 0; i < hours.length; i++){
     this.hourlyArray[i] = Math.floor(this.numCust() * this.avgCookiesPerSale);
+    let total =  this.hourlyArray[i];
+    this.allTotalCookies = this.allTotalCookies + total;
   }
 };
 
@@ -71,6 +74,7 @@ Store.prototype.createSalesBody = function(){
     let hourlyCookies = document.createElement('td');
     hourlyCookies.textContent = this.hourlyArray[i];
     cookieStoreTotal = cookieStoreTotal + this.hourlyArray[i];
+    
     tBodyRow.appendChild(hourlyCookies);
   }
 
@@ -118,11 +122,13 @@ Store.prototype.createSalesFooter = function(){
   tFootRow.appendChild(footerDataCell);
   // console.log('fdc?',tFootRow);
 
-
+  
   for(let i = 0; i < hours.length; i++){
     let cookieStoreTotal = 0;
+   
     for(let j = 0; j < Store.allStores.length; j++){
       cookieStoreTotal = cookieStoreTotal + Store.allStores[j].hourlyArray[i];
+     
     }
     let hourlyCookies = document.createElement('td');
     hourlyCookies.textContent = cookieStoreTotal;
@@ -132,11 +138,13 @@ Store.prototype.createSalesFooter = function(){
     tFoot.appendChild(tFootRow);
   }
 
-  // let totalOfTotals = 0;
-  // for (let i = 0; i < Store.allStores.length; i++){
-  //   totalOfTotals = totalOfTotals + this.hourlyArray[i];
-  // }
-  // console.log(totalOfTotals);
+ 
+  let totalTotalCookies = 0;
+  for (let i = 0; i < Store.allStores.length; i++){
+    totalTotalCookies = totalTotalCookies + Store.allStores[i].allTotalCookies;
+    console.log('final num', totalTotalCookies);
+  }
+  console.log('final num', totalTotalCookies);
   // footerDataCell = document.createElement('td');
   // footerDataCell.textContent = totalOfTotals;
   // tFootRow.appendChild(footerDataCell);
