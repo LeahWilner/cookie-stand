@@ -2,7 +2,7 @@
 console.log('js file loaded.');
 
 let hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm'];
-
+Store.allStores = [];
 
 function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerSale, hourlyArray){
   this.location = location;
@@ -10,6 +10,7 @@ function Store(location, minCustomerPerHour, maxCustomerPerHour, avgCookiesPerSa
   this.maxCustomerPerHour = maxCustomerPerHour;
   this.avgCookiesPerSale = avgCookiesPerSale;
   this.hourlyArray = hourlyArray;
+  Store.allStores.push(this);
 }
 
 
@@ -111,30 +112,35 @@ Store.prototype.createSalesBody = function(){
 Store.prototype.createSalesFooter = function(){
   let tFoot = document.getElementById('footerTotals');
   let tFootRow = document.createElement('tr');
-  console.log('hiya!',tFoot, tFootRow);
-
 
   let footerDataCell = document.createElement('td');
   footerDataCell.textContent = 'Total';
   tFootRow.appendChild(footerDataCell);
-  console.log('fdc?',tFootRow);
+  // console.log('fdc?',tFootRow);
 
-  let cookieStoreTotal = 0;
 
-  // create a for loop to iterate through our this.hourlyArray
   for(let i = 0; i < hours.length; i++){
-    console.log('Total Cookie Sales: ',this.hourlyArray[i]);
+    let cookieStoreTotal = 0;
+    for(let j = 0; j < Store.allStores.length; j++){
+      cookieStoreTotal = cookieStoreTotal + Store.allStores[j].hourlyArray[i];
+    }
     let hourlyCookies = document.createElement('td');
-    hourlyCookies.textContent = this.hourlyArray[i];
-    cookieStoreTotal = cookieStoreTotal + this.hourlyArray[i];
+    hourlyCookies.textContent = cookieStoreTotal;
     tFootRow.appendChild(hourlyCookies);
 
 
     tFoot.appendChild(tFootRow);
   }
 
-
-
+  // let totalOfTotals = 0;
+  // for (let i = 0; i < Store.allStores.length; i++){
+  //   totalOfTotals = totalOfTotals + this.hourlyArray[i];
+  // }
+  // console.log(totalOfTotals);
+  // footerDataCell = document.createElement('td');
+  // footerDataCell.textContent = totalOfTotals;
+  // tFootRow.appendChild(footerDataCell);
+  // tFoot.appendChild(tFootRow);
 };
 
 
@@ -167,21 +173,39 @@ console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
 // console.log(locSeattle);
 
 
-locSeattle.cookiePurchased();
-locTokyo.cookiePurchased();
-locDubai.cookiePurchased();
-locParis.cookiePurchased();
-locLima.cookiePurchased();
+// locSeattle.cookiePurchased();
+// locTokyo.cookiePurchased();
+// locDubai.cookiePurchased();
+// locParis.cookiePurchased();
+// locLima.cookiePurchased();
 
-locSeattle.createSalesBody();
-locTokyo.createSalesBody();
-locDubai.createSalesBody();
-locParis.createSalesBody();
-locLima.createSalesBody();
-
-
-locSeattle.createSalesFooter();
+// locSeattle.createSalesBody();
 // locTokyo.createSalesBody();
 // locDubai.createSalesBody();
 // locParis.createSalesBody();
 // locLima.createSalesBody();
+
+
+// locSeattle.createSalesFooter();
+// locTokyo.createSalesFooter();
+// locDubai.createSalesFooter();
+// locParis.createSalesFooter();
+// locLima.createSalesFooter();
+
+
+
+Store.prototype.renderAll = function(){
+  console.log('proof of life!');
+
+  for(let i = 0; i < Store.allStores.length; i++){
+    Store.allStores[i].cookiePurchased();
+    Store.allStores[i].createSalesBody();
+    // Store.allStores[i].createSalesFooter();
+  }
+
+};
+
+
+Store.prototype.renderAll();
+console.log(Store.allStores);
+Store.prototype.createSalesFooter();
