@@ -52,7 +52,7 @@ createSalesHeader();
 Store.prototype.createSalesBody = function(){
   let tBody = document.getElementById('cookieHourlyData');
   let tBodyRow = document.createElement('tr');
-  console.log('here!',tBody, tBodyRow);
+  // console.log('here!',tBody, tBodyRow);
 
   //get store location then,
   //create a td
@@ -61,12 +61,12 @@ Store.prototype.createSalesBody = function(){
   storeLocation.textContent = this.location;
   //append the location to the row
   tBodyRow.appendChild(storeLocation);
-   
+
   let cookieStoreTotal = 0;
 
   // create a for loop to iterate through our this.hourlyArray
   for(let i = 0; i < hours.length; i++){
-    console.log('cookie numbers: ',this.hourlyArray[i]);
+    // console.log('cookie numbers: ',this.hourlyArray[i]);
     let hourlyCookies = document.createElement('td');
     hourlyCookies.textContent = this.hourlyArray[i];
     cookieStoreTotal = cookieStoreTotal + this.hourlyArray[i];
@@ -102,17 +102,40 @@ Store.prototype.createSalesBody = function(){
 
 // Store.prototype.renderFooter = function(){
 // let td = document.getElementById('footerTotals');
- 
+
 
 //};//closes the footer function called renderFooter
 
 
 
+Store.prototype.createSalesFooter = function(){
+  let tFoot = document.getElementById('footerTotals');
+  let tFootRow = document.createElement('tr');
+  console.log('hiya!',tFoot, tFootRow);
+
+
+  let footerDataCell = document.createElement('td');
+  footerDataCell.textContent = 'Total';
+  tFootRow.appendChild(footerDataCell);
+  console.log('fdc?',tFootRow);
+
+  let cookieStoreTotal = 0;
+
+  // create a for loop to iterate through our this.hourlyArray
+  for(let i = 0; i < hours.length; i++){
+    console.log('Total Cookie Sales: ',this.hourlyArray[i]);
+    let hourlyCookies = document.createElement('td');
+    hourlyCookies.textContent = this.hourlyArray[i];
+    cookieStoreTotal = cookieStoreTotal + this.hourlyArray[i];
+    tFootRow.appendChild(hourlyCookies);
+
+
+    tFoot.appendChild(tFootRow);
+  }
 
 
 
-
-
+};
 
 
 
@@ -145,12 +168,19 @@ console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
 
 
 locSeattle.cookiePurchased();
-// locTokyo.cookiePurchased();
-// locDubai.cookiePurchased();
-// locParis.cookiePurchased();
-// locLima.cookiePurchased();
+locTokyo.cookiePurchased();
+locDubai.cookiePurchased();
+locParis.cookiePurchased();
+locLima.cookiePurchased();
 
 locSeattle.createSalesBody();
+locTokyo.createSalesBody();
+locDubai.createSalesBody();
+locParis.createSalesBody();
+locLima.createSalesBody();
+
+
+locSeattle.createSalesFooter();
 // locTokyo.createSalesBody();
 // locDubai.createSalesBody();
 // locParis.createSalesBody();
