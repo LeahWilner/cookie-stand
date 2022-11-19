@@ -1,6 +1,12 @@
+* {
+background-color: rgb(252, 196, 216);
+}
+
+
 body {
+
   font-family: 'Lobster', cursive;
-  
+ 
 }
 
 h1 {
