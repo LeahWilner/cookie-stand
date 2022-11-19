@@ -142,6 +142,7 @@ Store.prototype.createSalesFooter = function(){
   footerDataCell = document.createElement('td');
   footerDataCell.textContent = totalTotalCookies;
   tFootRow.appendChild(footerDataCell);
+  tFootRow.id = 'footer';
   tFoot.appendChild(tFootRow);
 };
 
