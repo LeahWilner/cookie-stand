@@ -231,6 +231,10 @@ function setUpNewStoreForm() {
 
     // TODO: Rearrange the form to have the right inputs!
     let locNew = new Store(name, hourlySales, hourlySales, dailySales, []);
+
+    // Add row to table!
+    locNew.cookiePurchased();
+    locNew.createSalesBody();
   });
 }
 
