@@ -218,6 +218,16 @@ function setUpNewStoreForm() {
   submitForm.addEventListener('submit', function (formEvent) {
     formEvent.preventDefault();
     console.log(formEvent);
+
+    let nameInput = document.getElementById('name');
+    let hourlySalesInput = document.getElementById('hourlySales');
+    let dailySalesInput = document.getElementById('dailySales');
+    console.log(nameInput);
+
+    let name = nameInput.value;
+    let hourlySales = hourlySalesInput.value;
+    let dailySales = dailySalesInput.value;
+    console.log({ name, hourlySales, dailySales })
   });
 }
 
