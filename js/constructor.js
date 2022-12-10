@@ -212,3 +212,13 @@ Store.prototype.renderAll = function(){
 Store.prototype.renderAll();
 console.log(Store.allStores);
 Store.prototype.createSalesFooter();
+
+function setUpNewStoreForm() {
+  let submitForm = document.getElementById('new-store');
+  submitForm.addEventListener('submit', function (formEvent) {
+    formEvent.preventDefault();
+    console.log(formEvent);
+  });
+}
+
+setUpNewStoreForm();
