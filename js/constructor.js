@@ -115,6 +115,9 @@ Store.prototype.createSalesBody = function(){
 
 Store.prototype.createSalesFooter = function(){
   let tFoot = document.getElementById('footerTotals');
+  // Clear it out so we don't have multiple total rows
+  tFoot.innerHTML = '';
+
   let tFootRow = document.createElement('tr');
   let footerDataCell = document.createElement('td');
   footerDataCell.textContent = 'Total';
@@ -235,6 +238,9 @@ function setUpNewStoreForm() {
     // Add row to table!
     locNew.cookiePurchased();
     locNew.createSalesBody();
+
+    // Update our sales footer!
+    Store.prototype.createSalesFooter();
   });
 }
 
