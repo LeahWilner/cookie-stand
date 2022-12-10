@@ -113,7 +113,7 @@ Store.prototype.createSalesBody = function(){
 
 
 
-Store.prototype.createSalesFooter = function(){
+Store.prototype.updateSalesFooter = function () {
   let tFoot = document.getElementById('footerTotals');
   // Clear it out so we don't have multiple total rows
   tFoot.innerHTML = '';
@@ -214,7 +214,7 @@ Store.prototype.renderAll = function(){
 
 Store.prototype.renderAll();
 console.log(Store.allStores);
-Store.prototype.createSalesFooter();
+Store.prototype.updateSalesFooter();
 
 function setUpNewStoreForm() {
   let submitForm = document.getElementById('new-store');
@@ -240,7 +240,7 @@ function setUpNewStoreForm() {
     locNew.createSalesBody();
 
     // Update our sales footer!
-    Store.prototype.createSalesFooter();
+    Store.prototype.updateSalesFooter();
   });
 }
 
