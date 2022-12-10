@@ -176,37 +176,12 @@ let locLima = new Store('Lima', 2, 16, 4.6, []);
 
 console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
 
-// console.log(locSeattle);
-
-
-// locSeattle.cookiePurchased();
-// locTokyo.cookiePurchased();
-// locDubai.cookiePurchased();
-// locParis.cookiePurchased();
-// locLima.cookiePurchased();
-
-// locSeattle.createSalesBody();
-// locTokyo.createSalesBody();
-// locDubai.createSalesBody();
-// locParis.createSalesBody();
-// locLima.createSalesBody();
-
-
-// locSeattle.createSalesFooter();
-// locTokyo.createSalesFooter();
-// locDubai.createSalesFooter();
-// locParis.createSalesFooter();
-// locLima.createSalesFooter();
-
-
-
 Store.prototype.renderAll = function(){
   console.log('proof of life!');
 
   for(let i = 0; i < Store.allStores.length; i++){
     Store.allStores[i].cookiePurchased();
     Store.allStores[i].createSalesBody();
-    // Store.allStores[i].createSalesFooter();
   }
 
 };
