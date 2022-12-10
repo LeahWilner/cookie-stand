@@ -113,8 +113,11 @@ Store.prototype.createSalesBody = function(){
 
 
 
-Store.prototype.createSalesFooter = function(){
+Store.prototype.updateSalesFooter = function () {
   let tFoot = document.getElementById('footerTotals');
+  // Clear it out so we don't have multiple total rows
+  tFoot.innerHTML = '';
+
   let tFootRow = document.createElement('tr');
   let footerDataCell = document.createElement('td');
   footerDataCell.textContent = 'Total';
@@ -173,37 +176,12 @@ let locLima = new Store('Lima', 2, 16, 4.6, []);
 
 console.log(locSeattle, locTokyo, locDubai, locParis, locLima);
 
-// console.log(locSeattle);
-
-
-// locSeattle.cookiePurchased();
-// locTokyo.cookiePurchased();
-// locDubai.cookiePurchased();
-// locParis.cookiePurchased();
-// locLima.cookiePurchased();
-
-// locSeattle.createSalesBody();
-// locTokyo.createSalesBody();
-// locDubai.createSalesBody();
-// locParis.createSalesBody();
-// locLima.createSalesBody();
-
-
-// locSeattle.createSalesFooter();
-// locTokyo.createSalesFooter();
-// locDubai.createSalesFooter();
-// locParis.createSalesFooter();
-// locLima.createSalesFooter();
-
-
-
 Store.prototype.renderAll = function(){
   console.log('proof of life!');
 
   for(let i = 0; i < Store.allStores.length; i++){
     Store.allStores[i].cookiePurchased();
     Store.allStores[i].createSalesBody();
-    // Store.allStores[i].createSalesFooter();
   }
 
 };
@@ -211,4 +189,34 @@ Store.prototype.renderAll = function(){
 
 Store.prototype.renderAll();
 console.log(Store.allStores);
-Store.prototype.createSalesFooter();
+Store.prototype.updateSalesFooter();
+
+function setUpNewStoreForm() {
+  let submitForm = document.getElementById('new-store');
+  submitForm.addEventListener('submit', function (formEvent) {
+    formEvent.preventDefault();
+    console.log(formEvent);
+
+    let nameInput = document.getElementById('name');
+    let hourlySalesInput = document.getElementById('hourlySales');
+    let dailySalesInput = document.getElementById('dailySales');
+    console.log(nameInput);
+
+    let name = nameInput.value;
+    let hourlySales = hourlySalesInput.value;
+    let dailySales = dailySalesInput.value;
+    console.log({ name, hourlySales, dailySales })
+
+    // TODO: Rearrange the form to have the right inputs!
+    let locNew = new Store(name, hourlySales, hourlySales, dailySales, []);
+
+    // Add row to table!
+    locNew.cookiePurchased();
+    locNew.createSalesBody();
+
+    // Update our sales footer!
+    Store.prototype.updateSalesFooter();
+  });
+}
+
+setUpNewStoreForm();
