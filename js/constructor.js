@@ -228,6 +228,9 @@ function setUpNewStoreForm() {
     let hourlySales = hourlySalesInput.value;
     let dailySales = dailySalesInput.value;
     console.log({ name, hourlySales, dailySales })
+
+    // TODO: Rearrange the form to have the right inputs!
+    let locNew = new Store(name, hourlySales, hourlySales, dailySales, []);
   });
 }
 
